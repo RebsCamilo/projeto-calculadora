@@ -1,6 +1,6 @@
 public class Calculadora {
 
-    private Double result;
+    protected Double result;
 
     public Calculadora() {
         result = 0.0;

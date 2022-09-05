@@ -1,74 +1,86 @@
 import java.util.Scanner;
 
-public class App {
+public class AppCalculadora {
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        String op = " ";
 
-        System.out.println("##### CALCULADORA #####\n");
+        Scanner scan = new Scanner(System.in);
+        String continua = "S";
+        // String op = " ";
+
+        System.out.println("##### CALCULADORA #####");
         System.out.println("[+] Somar");
         System.out.println("[-] Subtrair");
         System.out.println("[x] Multiplicar");
         System.out.println("[/] Dividir");
         System.out.println("[0] Zerar Calculadora");
-        System.out.println("[s] Sair");
+        System.out.println("[S] Sair");
 
         
 
         Calculadora calc = new Calculadora();
+
+        // EnumOperacoes ep = EnumOperacoes.pegaEnumOperacoesPorValor("+");
+
+        // EnumOperacoes ep2 = EnumOperacoes.SOMA;
+
+        // System.out.println(ep);
+        // System.out.println(ep2.getOperacao());
+
+        // System.out.println(EnumOperacoes.values());
+
         
-        while(op != "0") {
+        while(continua != "N") {
             if (calc.getResult() == 0.0) {
+                System.out.println("Digite o primeiro número: ");
                 calc.somar(scan.nextDouble());
                 // System.out.println(calc.getResult());
             }
-            op = scan.next();
-            // System.out.println(op);
+
+            EnumOperacoes op = EnumOperacoes.pegaEnumOperacoesPorValor(scan.next().toUpperCase());
             
             Double resultAnterior = calc.getResult();
             Double n = scan.nextDouble();
             switch (op) {
-                case "+":
+                case SOMA:
                     calc.somar(n);
                     System.out.print(resultAnterior + " + " + n + " = " + calc.getResult());
                     clearBuffer(scan);
                     break;
-                case "-":
+                case SUBTRACAO:
                     calc.subtrair(n);
                     System.out.print(resultAnterior + " - " + n + " = " + calc.getResult());
-                    clearBuffer(scan);
+                    // clearBuffer(scan);
                     break;
-                case "x":
+                case MULTIPLICACAO:
                     calc.multiplicar(n);
                     System.out.print(resultAnterior + " x " + n + " = " + calc.getResult());
-                    clearBuffer(scan);
+                    // clearBuffer(scan);
                     break;
-                case "/":
+                case DIVISAO:
                     calc.dividir(n);
                     System.out.print(resultAnterior + " / " + n + " = " + calc.getResult());
-                    clearBuffer(scan);
+                    // clearBuffer(scan);
                     break;
-                case "0":
-                    clearBuffer(scan);
-                    System.out.println(calc.getResult());
+                case ZERAR:
+                    // clearBuffer(scan);
                     calc.zerar();
-                    System.out.println(calc.getResult());
                     System.out.println("Calculadora zerada, reinicie seus cálculos");
                     break;
-                case "s":
+                case SAIR:
                     System.out.println("\nEncerrando programa\n");
-                    op = "0";
+                    continua = "N";
                     break;
                 default:
                     System.out.println("\nValor inválido\n");
                     break;
-            }
+            } 
         }        
+    
     }
 
     private static void clearBuffer(Scanner scanner) {
-        if (scanner.hasNextLine()) {
-            scanner.nextLine();
+        if (scanner.hasNext()) {
+            scanner.nextDouble();
         }
     }
 
