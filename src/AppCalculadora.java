@@ -7,17 +7,12 @@ public class AppCalculadora {
         String continua = "S";
         // String op = " ";
 
-        System.out.println("##### CALCULADORA #####");
-        System.out.println("[+] Somar");
-        System.out.println("[-] Subtrair");
-        System.out.println("[x] Multiplicar");
-        System.out.println("[/] Dividir");
-        System.out.println("[0] Zerar Calculadora");
-        System.out.println("[S] Sair");
+        menu();
 
         
 
-        Calculadora calc = new Calculadora();
+        // Calculadora calc = new Soma();
+        // Calculadora calc = new Calculadora();
 
         // EnumOperacoes ep = EnumOperacoes.pegaEnumOperacoesPorValor("+");
 
@@ -29,17 +24,20 @@ public class AppCalculadora {
         // System.out.println(EnumOperacoes.values());
 
         
-        while(continua != "N") {
+/*         while(continua != "N") {
             if (calc.getResult() == 0.0) {
                 System.out.println("Digite o primeiro número: ");
-                calc.somar(scan.nextDouble());
+                // calc.somar(scan.nextDouble());
                 // System.out.println(calc.getResult());
             }
 
             EnumOperacoes op = EnumOperacoes.pegaEnumOperacoesPorValor(scan.next().toUpperCase());
             
             Double resultAnterior = calc.getResult();
-            Double n = scan.nextDouble();
+            Double n = scan.nextDouble(); */
+
+
+/* 
             switch (op) {
                 case SOMA:
                     calc.somar(n);
@@ -74,14 +72,25 @@ public class AppCalculadora {
                     System.out.println("\nValor inválido\n");
                     break;
             } 
+             */
         }        
     
     }
 
-    private static void clearBuffer(Scanner scanner) {
+    private static void menu() {
+        System.out.println("##### CALCULADORA #####");
+        System.out.println("[+] Somar");
+        System.out.println("[-] Subtrair");
+        System.out.println("[x] Multiplicar");
+        System.out.println("[/] Dividir");
+        System.out.println("[0] Zerar Calculadora");
+        System.out.println("[S] Sair");
+    }
+
+/*     private static void clearBuffer(Scanner scanner) {
         if (scanner.hasNext()) {
             scanner.nextDouble();
         }
-    }
+    } */
 
 }

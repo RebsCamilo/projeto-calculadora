@@ -1,5 +1,5 @@
-public interface strategyCalculos {
+public interface StrategyCalculos {
 
-    public Double calcula(Double numero);
+    public Double calcula(Double n1, Double n2);
     
 }
