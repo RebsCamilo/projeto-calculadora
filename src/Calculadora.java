@@ -19,6 +19,7 @@ public class Calculadora {
     }
     
     public Double zerar() {
+        System.out.println("Calculadora zerada");
         return this.result = 0.0;
     } 
 

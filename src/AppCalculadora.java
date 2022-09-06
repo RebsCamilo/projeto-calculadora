@@ -4,45 +4,48 @@ public class AppCalculadora {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        String continua = "S";
-        // String op = " ";
 
         menu();
 
         Calculadora calc = new Calculadora();
         
-        while (true) {
+        String operacao = "0";
+        while (operacao != "S") {
 
             //Capturar do user algo que indique minha strategy
             System.out.println("Digite a operação");
-            String operacao = scan.next().toUpperCase();
-            if (operacao == "0") {
+            operacao = scan.next().toUpperCase();
+            if (operacao.equals("0")) {
                 calc.zerar();
-            } else if (operacao == "S") {
+                System.out.println("Novo valor: " + calc.result);
+                continue;
+            } else if (operacao.equals("S")) {
+                operacao = "S";
+                System.exit(0);
                 break;
+            } else {
+                EnumOperacoes strategy = EnumOperacoes.getEnumOperacoesPorSimbolo(operacao);
+                System.out.println("Digite o valor");
+                calc.calcular(strategy, Double.parseDouble(scan.next()));
             }
-            EnumOperacoes strategy = EnumOperacoes.valueOf(operacao);
-            // StrategyCalculos strategy = scan.next();
-            
-            System.out.println("Digite o valor");
-            calc.calcular(strategy, scan.nextDouble());
+            // StrategyCalculos strategy = scan.next();            
 
             System.out.println(calc.result);
 
             
         }
 
-        // Calculadora calc = new Soma();
-        // Calculadora calc = new Calculadora();
+        /* Calculadora calc = new Soma();
+        Calculadora calc = new Calculadora();
 
-        // EnumOperacoes ep = EnumOperacoes.pegaEnumOperacoesPorValor("+");
+        EnumOperacoes ep = EnumOperacoes.pegaEnumOperacoesPorValor("+");
 
-        // EnumOperacoes ep2 = EnumOperacoes.SOMA;
+        EnumOperacoes ep2 = EnumOperacoes.SOMA;
 
-        // System.out.println(ep);
-        // System.out.println(ep2.getOperacao());
+        System.out.println(ep);
+        System.out.println(ep2.getOperacao());
 
-        // System.out.println(EnumOperacoes.values());
+        System.out.println(EnumOperacoes.values()); */
 
         
 /*         while(continua != "N") {
