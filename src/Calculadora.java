@@ -14,8 +14,8 @@ public class Calculadora {
         return result;
     }
 
-    public Double calcular(StrategyCalculos strategy, Double numero) {
-        return this.result = strategy.calcula(this.result, numero);
+    public Double calcular(EnumOperacoes enumStrategy, Double numero) {
+        return this.result = enumStrategy.getStrategy().calcula(this.result, numero);
     }
     
     public Double zerar() {

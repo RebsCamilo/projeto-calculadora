@@ -14,9 +14,20 @@ public class AppCalculadora {
         while (true) {
 
             //Capturar do user algo que indique minha strategy
-            StrategyCalculos strategy = scan.next();
+            System.out.println("Digite a operação");
+            String operacao = scan.next().toUpperCase();
+            if (operacao == "0") {
+                calc.zerar();
+            } else if (operacao == "S") {
+                break;
+            }
+            EnumOperacoes strategy = EnumOperacoes.valueOf(operacao);
+            // StrategyCalculos strategy = scan.next();
+            
+            System.out.println("Digite o valor");
+            calc.calcular(strategy, scan.nextDouble());
 
-            calc.calcular(scan.nextLine(), scan.nextDouble());
+            System.out.println(calc.result);
 
             
         }
@@ -90,11 +101,11 @@ public class AppCalculadora {
     private static void menu() {
         System.out.println("##### CALCULADORA #####");
         System.out.println("[0] Zerar Calculadora");
-        System.out.println("[1] Somar");
-        System.out.println("[2] Subtrair");
-        System.out.println("[3] Multiplicar");
-        System.out.println("[4] Dividir");
-        System.out.println("[5] Sair");
+        System.out.println("[SOMA] Somar");
+        System.out.println("[SUB] Subtrair");
+        System.out.println("[MULT] Multiplicar");
+        System.out.println("[DIV] Dividir");
+        System.out.println("[S] Sair");
     }
 
 /*     private static void clearBuffer(Scanner scanner) {
