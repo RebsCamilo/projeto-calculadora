@@ -2,14 +2,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public enum EnumOperacoes {
-    SOMA("+"),
-    SUBTRACAO("-"),
-    MULTIPLICACAO("*"),
-    DIVISAO("/"),
-    ZERAR("0"),
-    SAIR("S");
+    ZERAR(0),
+    SOMA(1),
+    SUBTRACAO(2),
+    MULTIPLICACAO(3),
+    DIVISAO(4),
+    SAIR(5);
 
-    private String operacao;
+    private Integer operacao;
 
     //Criar uma constante estática do tipo HashMap no enum onde a chave será uma String 
     //e o valor será o tipo do Enum.
@@ -24,11 +24,11 @@ public enum EnumOperacoes {
         }
     }
 
-    EnumOperacoes(String valor) {
+    EnumOperacoes(Integer valor) {
         this.operacao = valor;
     }
 
-    public String getOperacao() {
+    public Integer getOperacao() {
         return operacao;
     }
 

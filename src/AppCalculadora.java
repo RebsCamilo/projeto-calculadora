@@ -9,7 +9,17 @@ public class AppCalculadora {
 
         menu();
 
+        Calculadora calc = new Calculadora();
         
+        while (true) {
+
+            //Capturar do user algo que indique minha strategy
+            StrategyCalculos strategy = scan.next();
+
+            calc.calcular(scan.nextLine(), scan.nextDouble());
+
+            
+        }
 
         // Calculadora calc = new Soma();
         // Calculadora calc = new Calculadora();
@@ -73,18 +83,18 @@ public class AppCalculadora {
                     break;
             } 
              */
-        }        
+        // }        
     
     }
 
     private static void menu() {
         System.out.println("##### CALCULADORA #####");
-        System.out.println("[+] Somar");
-        System.out.println("[-] Subtrair");
-        System.out.println("[x] Multiplicar");
-        System.out.println("[/] Dividir");
         System.out.println("[0] Zerar Calculadora");
-        System.out.println("[S] Sair");
+        System.out.println("[1] Somar");
+        System.out.println("[2] Subtrair");
+        System.out.println("[3] Multiplicar");
+        System.out.println("[4] Dividir");
+        System.out.println("[5] Sair");
     }
 
 /*     private static void clearBuffer(Scanner scanner) {
