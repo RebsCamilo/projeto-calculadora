@@ -7,7 +7,6 @@ public class Calculadora {
 
     public Calculadora() {
         result = 0.0;
-        System.out.println("Calculadora iniciada");
     }
 
     public Double getResult() {
